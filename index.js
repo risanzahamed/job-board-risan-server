@@ -68,6 +68,14 @@ const run = async () => {
       const jobs = await allJobsByCategory.find(query).toArray()
       res.send(jobs)
     })
+
+    app.get('/Top-IT-Companies/:id', async (req, res) => {
+      const id = req.params.id
+      const query = { _id: ObjectId(id) }
+      const result = await allJobsByCategory.findOne(query)
+      res.send(result)
+  })
+
   } finally {
   }
 };
